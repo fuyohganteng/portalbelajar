@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Belajar TIK Interaktif - Teman Belajarmu!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* Variabel Warna */
+        :root {
+            --primary-color: #4CAF50; /* Hijau Cerah, tetap ceria dan segar */
+            --secondary-color: #2196F3; /* Biru Langit, tetap modern dan bersih */
+            --accent-color: #00BCD4; /* Cyan - Memberikan nuansa digital/teknologi yang modern */
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-light: #F9F9F9;
+            --background-dark: #ECEFF1;
+            --border-color: #DDD;
+            --white: #FFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset CSS Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px var(--shadow);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--light-text-color);
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .main-nav ul li a:hover,
+        .main-nav ul li a.active {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to right, #e0f7fa, #bbdefb); /* Gradien biru muda */
+            padding: 80px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+        }
+
+        .hero-section .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            flex-wrap: wrap; /* Untuk responsif */
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .hero-content h2 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+
+        /* Umum untuk Section Konten */
+        .content-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .content-section.bg-light {
+            background-color: var(--background-dark);
+        }
+
+        .content-section h3 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-section h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            margin-bottom: 40px;
+        }
+
+        /* Tombol */
+        .btn-primary, .btn-secondary, .btn-tertiary {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover, .btn-tertiary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #43A047;
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #1976D2;
+            box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+        }
+
+        .btn-tertiary {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+        }
+
+        .btn-tertiary:hover {
+            background-color: #00ACC1;
+            box-shadow: 0 6px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        /* Materi Grid */
+        .materi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .materi-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .materi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .materi-icon {
+            font-size: 3.5em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .materi-card h4 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .materi-card p {
+            color: var(--light-text-color);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Style untuk Konten Materi yang Tersembunyi/Tampil */
+        .materi-content {
+            max-height: 0; /* Sembunyikan secara default */
+            overflow: hidden; /* Sembunyikan konten yang meluap */
+            transition: max-height 0.7s ease-out, padding 0.7s ease-out, margin-top 0.7s ease-out; /* Animasi transisi */
+            padding: 0 10px; /* Padding awal 0 */
+            margin-top: 0; /* Margin awal 0 */
+            text-align: left; /* Teks materi rata kiri */
+            border-top: 1px solid var(--border-color); /* Garis pemisah */
+            padding-top: 0;
+        }
+
+        .materi-content.active {
+            max-height: 1000px; /* Nilai besar agar konten bisa muat */
+            padding: 25px 10px; /* Padding saat aktif */
+            margin-top: 20px; /* Margin saat aktif */
+            border-top: 1px solid var(--primary-color); /* Garis pemisah yang lebih menonjol */
+            box-shadow: inset 0 0 10px rgba(0, 188, 212, 0.1); /* Bayangan dalam */
+            border-radius: 8px;
+            background-color: var(--background-light);
+        }
+
+        .materi-content h5 {
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .materi-content h6 {
+            color: var(--text-color);
+            font-size: 1.1em;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .materi-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: var(--light-text-color);
+        }
+
+        .materi-content ul li {
+            margin-bottom: 5px;
+        }
+
+        .materi-content .btn-tertiary {
+            margin-top: 20px;
+            float: right; /* Posisikan tombol tutup di kanan */
+        }
+
+
+        /* Tugas List */
+        .tugas-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tugas-item {
+            background-color: var(--white);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px var(--shadow);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tugas-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tugas-icon {
+            font-size: 2em;
+            color: var(--accent-color);
+        }
+
+        .tugas-item h4 {
+            font-size: 1.3em;
+            color: var(--text-color);
+        }
+
+        .tugas-item p {
+            color: var(--light-text-color);
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        /* Tambahan CSS untuk konten tugas */
+        .tugas-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease-out, padding 0.7s ease-out, margin-top 0.7s ease-out;
+            padding: 0 10px;
+            margin-top: 0;
+            text-align: left;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0;
+            background-color: var(--background-light); /* Latar belakang sama dengan materi */
+            border-radius: 0 0 12px 12px; /* Melengkungkan sudut bawah */
+            box-shadow: inset 0 0 10px rgba(0, 188, 212, 0.05); /* Bayangan dalam lebih lembut */
+        }
+
+        .tugas-content.active {
+            max-height: 1500px; /* Nilai lebih besar untuk konten tugas */
+            padding: 25px 10px;
+            margin-top: 20px;
+            border-top: 1px solid var(--accent-color); /* Garis pemisah dengan warna accent */
+            box-shadow: inset 0 0 10px rgba(0, 188, 212, 0.1);
+        }
+
+        .tugas-content h5 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .tugas-content ul {
+            list-style-type: decimal; /* Penomoran untuk langkah-langkah */
+            margin-left: 25px;
+            margin-bottom: 15px;
+            color: var(--light-text-color);
+        }
+
+        .tugas-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .tugas-content p {
+            margin-bottom: 15px;
+        }
+
+        .tugas-content .btn-tertiary {
+            margin-top: 20px;
+            float: right;
+            clear: both; /* Memastikan tombol di bawah semua konten */
+        }
+
+        /* Profil Guru */
+        .guru-profile {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px var(--shadow);
+            max-width: 700px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .guru-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 25px;
+            box-shadow: 0 0 0 7px rgba(76, 175, 80, 0.2);
+        }
+
+        .guru-profile h4 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .guru-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .guru-bio {
+            color: var(--light-text-color);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .guru-bio strong {
+            color: var(--text-color);
+        }
+
+        .guru-info {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .guru-info li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .guru-info li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Form Kontak */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px var(--shadow);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            color: var(--text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn-primary {
+            width: auto;
+            padding: 12px 35px;
+            font-size: 1.1em;
+            float: right;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .main-footer .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .main-footer .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .hero-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+
+            .main-nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--white);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                box-shadow: 0 8px 16px var(--shadow);
+                padding: 20px 0;
+            }
+
+            .main-nav ul.active {
+                display: flex;
+            }
+
+            .main-nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .tugas-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 15px; /* Tambahan padding agar tombol tidak terlalu mepet */
+            }
+
+            .tugas-item .btn-tertiary {
+                align-self: flex-end; /* Kembali ke kanan bawah */
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h3 {
+                font-size: 2em;
+            }
+
+            .section-description {
+            font-size: 1em;
+            }
+
+            .materi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .hero-content h2 {
+                font-size: 2em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+            }
+
+            .btn-primary, .btn-secondary, .btn-tertiary {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .materi-card {
+                padding: 20px;
+            }
+
+            .materi-icon {
+                font-size: 3em;
+            }
+
+            .guru-profile {
+                padding: 20px;
+            }
+
+            .guru-profile h4 {
+                font-size: 1.5em;
+            }
+
+            .guru-title {
+                font-size: 1em;
+            }
+
+            .guru-avatar {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Portal Belajar TIK</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#materi">Materi TIK</a></li>
+                    <li><a href="#tugas">Proyek & Latihan</a></li>
+                    <li><a href="#guru">Profil Pengajar</a></li>
+                    <li><a href="#kontak">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Selamat Datang di Portal Belajar TIK!</h2>
+                    <p>Temukan dunia digital yang seru dan siapkan dirimu untuk masa depan.</p>
+                    <a href="#materi" class="btn-primary">Mulai Eksplorasi Sekarang!</a>
+                </div>
+                <div class="hero-image">
+                    <img src="animasi2.png" alt="Ilustrasi Belajar TIK">
+                </div>
+            </div>
+        </section>
+
+        <section id="materi" class="content-section">
+            <div class="container">
+                <h3>Jelajahi Materi Informatika (TIK)</h3>
+                <p class="section-description">Berbagai topik TIK disajikan dengan menarik dan mudah dipahami.</p>
+                <div class="materi-grid">
+                    <div class="materi-card">
+                        <i class="fas fa-desktop materi-icon"></i>
+                        <h4>Pengenalan Komputer</h4>
+                        <p>Dasar-dasar hardware & software.</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-komputer">Mulai Belajar</a>
+                        <div id="materi-komputer" class="materi-content">
+                            <h5>Apa itu Komputer?</h5>
+                            <p>Komputer adalah perangkat elektronik yang dapat memproses data, menerima input, menyimpan data, dan menghasilkan output. Ini adalah alat yang sangat penting di era digital.</p>
+                            <h6>Bagian-bagian Utama Komputer:</h6>
+                            <ul>
+                                <li>**Hardware:** Bagian fisik komputer seperti CPU, RAM, Hard Drive, Monitor, Keyboard, Mouse.</li>
+                                <li>**Software:** Program atau aplikasi yang berjalan di komputer, contohnya sistem operasi (Windows, MacOS), browser (Chrome), atau aplikasi pengolah kata.</li>
+                            </ul>
+                            <p>Pelajari lebih lanjut di <a href="https://docs.google.com/presentation/d/16oYl6jb50RY6FyJjK504aH-PrtQ5jacH/edit?usp=drive_link&ouid=105294229079626881045&rtpof=true&sd=true">Link Power Point</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+
+                    <div class="materi-card">
+                        <i class="fas fa-code materi-icon"></i>
+                        <h4>Dasar Pemrograman</h4>
+                        <p>Belajar logika coding sederhana (Python/Scratch).</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-pemrograman">Mulai Belajar</a>
+                        <div id="materi-pemrograman" class="materi-content">
+                            <h5>Memulai Dunia Coding</h5>
+                            <p>Pemrograman adalah proses menulis instruksi yang dapat diikuti oleh komputer untuk melakukan tugas tertentu. Ini adalah bahasa yang kita gunakan untuk berbicara dengan komputer.</p>
+                            <h6>Konsep Dasar:</h6>
+                            <ul>
+                                <li>**Algoritma:** Langkah-langkah terstruktur untuk menyelesaikan masalah.</li>
+                                <li>**Variabel:** Tempat menyimpan data.</li>
+                                <li>**Kondisi (If/Else):** Membuat keputusan dalam kode.</li>
+                                <li>**Loop (Perulangan):** Mengulang tugas secara otomatis.</li>
+                            </ul>
+                            <p>Yuk coba melihat materi yang lebih lengkap <a href="https://docs.google.com/presentation/d/1nTVDtY7ffWzef1NouMCCSn6bkG9Zw9gf/edit?usp=drive_link&ouid=105294229079626881045&rtpof=true&sd=true">Link Power Point</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+
+                    <div class="materi-card">
+                        <i class="fas fa-globe materi-icon"></i>
+                        <h4>Jaringan & Internet</h4>
+                        <p>Memahami cara kerja dunia maya.</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-jaringan">Mulai Belajar</a>
+                        <div id="materi-jaringan" class="materi-content">
+                            <h5>Bagaimana Internet Bekerja?</h5>
+                            <p>Internet adalah jaringan komputer global yang memungkinkan miliaran perangkat saling terhubung dan berbagi informasi di seluruh dunia.</p>
+                            <h6>Konsep Kunci:</h6>
+                            <ul>
+                                <li>**Router:** Perangkat yang mengarahkan lalu lintas data.</li>
+                                <li>**IP Address:** Alamat unik setiap perangkat di jaringan.</li>
+                                <li>**Web Server:** Komputer yang menyimpan website dan mengirimkannya ke browser kita.</li>
+                            </ul>
+                          <p>Lihat Materi selanjutnya <a href="https://docs.google.com/presentation/d/1mNBeTrfeBc-RqLe1Gb0glIP1iK_RBI3m/edit?usp=drive_link&ouid=105294229079626881045&rtpof=true&sd=true">Link Power Point</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+
+                    <div class="materi-card">
+                        <i class="fas fa-shield-alt materi-icon"></i>
+                        <h4>Keamanan Siber</h4>
+                        <p>Melindungi diri di dunia digital.</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-keamanan">Mulai Belajar</a>
+                        <div id="materi-keamanan" class="materi-content">
+                            <h5>Lindungi Dirimu di Dunia Maya!</h5>
+                            <p>Keamanan siber adalah praktik melindungi sistem komputer, jaringan, dan data dari pencurian, kerusakan, atau akses tidak sah.</p>
+                            <h6>Tips Penting:</h6>
+                            <ul>
+                                <li>**Kata Sandi Kuat:** Gunakan kombinasi huruf, angka, simbol, dan jangan mudah ditebak.</li>
+                                <li>**Waspada Phishing:** Jangan klik tautan atau unduh lampiran dari email mencurigakan.</li>
+                                <li>**Antivirus:** Pastikan perangkatmu memiliki software antivirus yang aktif.</li>
+                            </ul>
+                            <p>Lihat video menarik tentang Internet di <a href="https://youtu.be/IvBfxSJWx6A?si=XZXp5EwOGolwStJh">Link Video YouTube</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+
+                    <div class="materi-card">
+                        <i class="fas fa-robot materi-icon"></i>
+                        <h4>Pengantar Robotika</h4>
+                        <p>Mengenal dasar robot dan AI.</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-robotika">Mulai Belajar</a>
+                        <div id="materi-robotika" class="materi-content">
+                            <h5>Robot: Teman atau Musuh?</h5>
+                            <p>Robot adalah mesin yang diprogram untuk melakukan tugas secara otomatis. Robotika adalah bidang yang mempelajari desain, konstruksi, operasi, dan aplikasi robot.</p>
+                            <h6>Elemen Robot:</h6>
+                            <ul>
+                                <li>**Sensor:** Untuk merasakan lingkungan (mata, telinga elektronik).</li>
+                                <li>**Aktuator:** Untuk melakukan gerakan (motor, roda).</li>
+                                <li>**Kontroler:** Otak robot (mikrokomputer).</li>
+                            </ul>
+                            <p>Tonton video tentang robot-robot keren di <a href="https://youtu.be/vfCJveOvA6Q?si=ge7EwTINors6ruEV">Video Inspirasi Robotika</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+
+                    <div class="materi-card">
+                        <i class="fas fa-bezier-curve materi-icon"></i>
+                        <h4>Desain Grafis Dasar</h4>
+                        <p>Membuat visual yang menarik.</p>
+                        <a href="#" class="btn-secondary toggle-materi" data-target="materi-desain">Mulai Belajar</a>
+                        <div id="materi-desain" class="materi-content">
+                            <h5>Sentuhan Visual di Era Digital</h5>
+                            <p>Desain grafis adalah seni komunikasi visual yang menggunakan tipografi, fotografi, ilustrasi, dan desain layout untuk menyampaikan pesan atau ide.</p>
+                            <h6>Prinsip Dasar Desain:</h6>
+                            <ul>
+                                <li>**Keseimbangan:** Penempatan elemen agar terlihat stabil.</li>
+                                <li>**Kontras:** Perbedaan yang menarik perhatian.</li>
+                                <li>**Hierarki:** Urutan visual informasi.</li>
+                                <li>**Repetisi:** Pengulangan elemen untuk konsistensi.</li>
+                            </ul>
+                            <p>Lihat video menarik tentang Internet di <a href="https://youtu.be/-5Tpw5fXeVo?si=DCij3bOJLQxLCQCu">Link Video YouTube</a>.</p>
+                            <button class="btn-tertiary close-materi">Tutup Materi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tugas" class="content-section bg-light">
+            <div class="container">
+                <h3>Proyek & Latihan Informatika Interaktif</h3>
+                <p class="section-description">Asah kemampuanmu dengan proyek dan latihan praktis.</p>
+                <div class="tugas-list">
+                    <div class="tugas-item">
+                        <div class="tugas-header">
+                            <i class="fas fa-laptop-code tugas-icon"></i>
+                            <h4>Proyek 1: Membuat Halaman Web Sederhana (HTML & CSS)</h4>
+                        </div>
+                        <p>Deadline: 5 Hari</p>
+                        <a href="#" class="btn-tertiary toggle-tugas" data-target="tugas-web">Mulai Proyek</a>
+                        <div id="tugas-web" class="tugas-content">
+                            <h5>Deskripsi Proyek:</h5>
+                            <p>Buatlah sebuah halaman web statis sederhana menggunakan HTML untuk struktur dan CSS untuk styling. Tema bebas (misalnya: profil pribadi, hobi, resep).</p>
+                            <h6>Langkah-langkah Proyek:</h6>
+                            <ol>
+                                <li>Buat file `index.html` dan `style.css`.</li>
+                                <li>Definisikan struktur dasar HTML (header, main, footer).</li>
+                                <li>Tambahkan konten berupa teks dan gambar.</li>
+                                <li>Terapkan styling dasar menggunakan CSS (warna, font, layout sederhana).</li>
+                                <li>Pastikan halaman responsif untuk perangkat mobile.</li>
+                            </ol>
+                            <p>Kumpulkan hasilnya melalui [Link Drive berikut].</p>
+                            <button class="btn-tertiary close-tugas">Tutup Detail Proyek</button>
+                        </div>
+                    </div>
+
+                    <div class="tugas-item">
+                        <div class="tugas-header">
+                            <i class="fas fa-bug tugas-icon"></i>
+                            <h4>Latihan Debugging Code Python</h4>
+                        </div>
+                        <p>Deadline: 3 Hari</p>
+                        <a href="#" class="btn-tertiary toggle-tugas" data-target="tugas-python">Mulai Latihan</a>
+                        <div id="tugas-python" class="tugas-content">
+                            <h5>Deskripsi Latihan:</h5>
+                            <p>Diberikan potongan kode Python yang mengandung beberapa kesalahan (bug). Tugas Anda adalah menemukan dan memperbaiki semua bug tersebut hingga kode berjalan dengan benar.</p>
+                            <h6>Kode Python yang Disediakan:</h6>
+                            <pre><code>
+def hitung_rata_rata(angka):
+    total = 0
+    for i in angka:
+        total += i
+    return total / len(angka)
+
+data = [10, 20, 30, 40, 50]
+print("Rata-rata:", hitung_rata_rata(data))
+                            </code></pre>
+                            <p>Temukan bug-nya dan jelaskan perbaikannya. Kirim kode yang sudah diperbaiki ke [Link Drive berikut].</p>
+                            <button class="btn-tertiary close-tugas">Tutup Detail Latihan</button>
+                        </div>
+                    </div>
+
+                    <div class="tugas-item">
+                        <div class="tugas-header">
+                            <i class="fas fa-lock tugas-icon"></i>
+                            <h4>Studi Kasus: Analisis Keamanan Akun Online</h4>
+                        </div>
+                        <p>Deadline: 7 Hari</p>
+                        <a href="#" class="btn-tertiary toggle-tugas" data-target="tugas-keamanan">Mulai Studi Kasus</a>
+                        <div id="tugas-keamanan" class="tugas-content">
+                            <h5>Deskripsi Studi Kasus:</h5>
+                            <p>Pilih satu platform online yang sering Anda gunakan (misalnya: media sosial, e-commerce, email). Analisis fitur keamanan yang disediakan dan identifikasi potensi kerentanan keamanan yang mungkin ada. Berikan saran perbaikan.</p>
+                            <h6>Poin Analisis:</h6>
+                            <ul>
+                                <li>Autentikasi dua faktor (2FA)</li>
+                                <li>Kebijakan kata sandi</li>
+                                <li>Pemberitahuan login mencurigakan</li>
+                                <li>Enkripsi data</li>
+                                <li>Penanganan data pribadi</li>
+                            </ul>
+                            <p>Buat laporan singkat (maksimal 2 halaman) dan kumpulkan.</p>
+                            <button class="btn-tertiary close-tugas">Tutup Detail Studi Kasus</button>
+                        </div>
+                    </div>
+
+                    <div class="tugas-item">
+                        <div class="tugas-header">
+                            <i class="fas fa-sitemap tugas-icon"></i>
+                            <h4>Proyek 2: Desain Jaringan Sederhana</h4>
+                        </div>
+                        <p>Deadline: 6 Hari</p>
+                        <a href="#" class="btn-tertiary toggle-tugas" data-target="tugas-jaringan">Mulai Proyek</a>
+                        <div id="tugas-jaringan" class="tugas-content">
+                            <h5>Deskripsi Proyek:</h5>
+                            <p>Desain topologi jaringan sederhana untuk sebuah kantor kecil yang memiliki 1 server, 5 komputer karyawan, 1 printer jaringan, dan akses internet. Gambarkan diagramnya dan jelaskan komponen yang dibutuhkan.</p>
+                            <h6>Aspek yang Perlu Diperhatikan:</h6>
+                            <ul>
+                                <li>Jenis koneksi internet (contoh: Fiber Optic, ADSL)</li>
+                                <li>Perangkat jaringan (router, switch, kabel)</li>
+                                <li>Penempatan perangkat</li>
+                                <li>Saran keamanan dasar jaringan</li>
+                            </ul>
+                            <p>Serahkan diagram dan penjelasan Anda.</p>
+                            <button class="btn-tertiary close-tugas">Tutup Detail Proyek</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="guru" class="content-section">
+            <div class="container">
+                <h3>Kenalan dengan Pengajar Hebat Kami!</h3>
+                <div class="guru-profile">
+                    <img src="bisma1.jpeg" alt="Foto Bisma Reihan" class="guru-avatar">
+                    <h4>Bisma Reihan</h4>
+                    <p class="guru-title">Pengajar TIK & Pengembang Muda</p>
+                    <p class="guru-bio">
+                        Bisma Reihan adalah seorang pendidik muda yang bersemangat dalam dunia Teknologi Informasi dan Komunikasi (TIK). Berasal dari Semarang, saat ini Bisma sedang menempuh pendidikan tinggi di Universitas Ivet Semarang, mengambil jurusan yang relevan dengan minatnya dalam mengajar dan mengembangkan solusi digital. Dengan metode pengajaran yang inovatif dan pendekatan yang ramah siswa, Bisma selalu berusaha membuat materi TIK menjadi lebih mudah dipahami, relevan, dan menyenangkan melalui proyek-proyek praktis. Moto Bisma: "Mari kita ubah ide menjadi kode dan jelajahi potensi tak terbatas dunia digital!"
+                    </p>
+                    <ul class="guru-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Tinggal di: Semarang</li>
+                        <li><i class="fas fa-university"></i> Pendidikan: Universitas Ivet Semarang</li>
+                        <li><i class="fas fa-envelope"></i> Email: bisma.reihan@portalbelajar.com</li>
+                        <li><i class="fas fa-laptop-code"></i> Spesialisasi: Pemrograman Dasar, Desain Web, Keamanan Siber</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="content-section bg-light">
+            <div class="container">
+                <h3>Ada Pertanyaan? Hubungi Kami!</h3>
+                <p class="section-description">Kami siap membantu perjalanan belajarmu di dunia digital.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan Anda</label>
+                        <textarea id="pesan" name="pesan" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Portal Belajar TIK. Semua Hak Cipta Dilindungi.</p>
+            <div class="footer-links">
+                <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat Penggunaan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript untuk toggle menu mobile
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav ul').classList.toggle('active');
+        });
+
+        // FUNGSI UMUM UNTUK MENAMPILKAN/MENYEMBUNYIKAN KONTEN
+        function setupContentToggle(toggleClass, contentClass, closeClass) {
+            document.querySelectorAll(`.${toggleClass}`).forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.dataset.target;
+                    const contentElement = document.getElementById(targetId);
+                    
+                    // Tutup konten lain yang mungkin terbuka di grup yang sama
+                    document.querySelectorAll(`.${contentClass}`).forEach(content => {
+                        if (content.id !== targetId && content.classList.contains('active')) {
+                            content.classList.remove('active');
+                            const associatedButton = document.querySelector(`.${toggleClass}[data-target="${content.id}"]`);
+                            if (associatedButton) {
+                                associatedButton.textContent = associatedButton.dataset.originalText || 'Mulai Belajar'; // Gunakan teks asli
+                            }
+                        }
+                    });
+
+                    contentElement.classList.toggle('active');
+
+                    // Ubah teks tombol sesuai status
+                    if (!this.dataset.originalText) { // Simpan teks asli jika belum ada
+                        this.dataset.originalText = this.textContent;
+                    }
+                    if (contentElement.classList.contains('active')) {
+                        // Tentukan teks yang sesuai untuk tombol "tutup" berdasarkan jenis konten
+                        if (contentClass === 'materi-content') {
+                            this.textContent = 'Tutup Materi';
+                        } else if (contentClass === 'tugas-content') {
+                            this.textContent = 'Tutup Detail';
+                        } else {
+                            this.textContent = 'Tutup';
+                        }
+                    } else {
+                        this.textContent = this.dataset.originalText; // Kembali ke teks asli saat tertutup
+                    }
+                    
+                    // Gulir ke tampilan konten
+                    contentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+            });
+
+            document.querySelectorAll(`.${closeClass}`).forEach(button => {
+                button.addEventListener('click', function() {
+                    const contentElement = this.closest(`.${contentClass}`);
+                    if (contentElement) {
+                        contentElement.classList.remove('active');
+                        const associatedButton = document.querySelector(`.${toggleClass}[data-target="${contentElement.id}"]`);
+                        if (associatedButton) {
+                            associatedButton.textContent = associatedButton.dataset.originalText || 'Mulai Belajar';
+                        }
+                    }
+                });
+            });
+        }
+
+        // Panggil fungsi untuk Materi
+        setupContentToggle('toggle-materi', 'materi-content', 'close-materi');
+
+        // Panggil fungsi untuk Tugas
+        setupContentToggle('toggle-tugas', 'tugas-content', 'close-tugas');
+    </script>
+</body>
+</html>
